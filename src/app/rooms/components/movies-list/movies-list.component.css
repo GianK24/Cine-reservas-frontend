@@ -1,0 +1,67 @@
+/* Sidebar Custom Styles */
+.custom-sidebar {
+    background-color: #3fbbc0 !important;
+    position: fixed;
+}
+  
+.sidebar .nav-link {
+    color: white;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease-in-out;
+}
+ 
+.sidebar .nav-link:hover {
+    background-color: hsl(186, 60%, 45%);
+    border-radius: 20%;
+}
+
+.position-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+  
+.navbar-brand img {
+    max-width: 50px;
+    height: auto;
+    margin-right: 0.5rem;
+}  
+
+.page-title-container {
+    text-align: center;
+    margin-top: 20px;
+}
+  
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3fbbc0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+  
+.title-underline {
+    width: 200px; 
+    border: 2px solid #3fbbc0;
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+.card-custom {
+    border-color: #3fbbc0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+  
+.card-custom:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.custom-title-text{
+    color: #3fbbc0;
+}
+  
+.modal-header{
+    background: #3fbbc0 !important;
+    color: white
+}

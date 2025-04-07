@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg sticky-top custom-navbar">
+  <div class="container-fluid">
+    <a class="navbar-brand text-light" routerLink="/">
+      <img src="assets/Logo.png" alt="Logo" /> Movie Reservation
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <!-- Inicio -->
+        <li class="nav-item">
+          <a class="nav-link text-light" routerLink="/home">Inicio</a>
+        </li>
+        <!-- Películas -->
+        <li class="nav-item">
+          <a class="nav-link text-light" routerLink="/movies/list">Películas</a>
+        </li>
+        <!-- Salas -->
+        <li class="nav-item">
+          <a class="nav-link text-light" routerLink="/rooms/list">Salas</a>
+        </li>
+        <!-- Funciones -->
+        <li class="nav-item">
+          <a class="nav-link text-light" routerLink="/functions/list">Funciones</a>
+        </li>
+        <!-- Reservas -->
+        <li class="nav-item">
+          <a class="nav-link text-light" routerLink="/reservations/list">Reservas</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,77 @@
+<div class="container mt-5 mb-4">
+  <div class="jumbotron text-center bg-light p-4">
+    <h1 class="display-4 home-comming">¡Bienvenido a Movie Reservation!</h1>
+    <p class="lead">
+      Haz tu reserva para el cine de manera facil y rapida.
+    </p>
+    <hr class="my-4" />
+
+
+    <section id="featured-services" class="featured-services section py-2">
+      <div class="container">
+        <div class="row gy-4">
+          <!-- Service Item 1 -->
+          <div
+            class="col-xl-4 col-md-6 d-flex"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="service-item position-relative p-4 bg-white text-dark rounded shadow hover-effect"
+              [routerLink]="'/movies/list'"
+            >
+              <div class="icon mb-3 text-info">
+                <i class="fas fa-film icon fs-2"></i>
+              </div>
+              <h4 class="mb-3">Películas</h4>
+              <p>
+                Gestiona el registro y consulta de películas disponibles en el cine.
+              </p>
+            </div>
+          </div>
+    
+          <!-- Service Item 2 -->
+          <div
+            class="col-xl-4 col-md-6 d-flex"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="service-item position-relative p-4 bg-white text-dark rounded shadow hover-effect"
+              [routerLink]="'/rooms/list'"
+            >
+              <div class="icon mb-3 text-info">
+                <i class="fas fa-door-open icon fs-2"></i>
+              </div>
+              <h4 class="mb-3">Salas</h4>
+              <p>
+                Visualiza y administra las salas disponibles para reservas en el cine.
+              </p>
+            </div>
+          </div>
+    
+          <!-- Service Item 3 -->
+          <div
+            class="col-xl-4 col-md-6 d-flex"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div
+              class="service-item position-relative p-4 bg-white text-dark rounded shadow hover-effect"
+              [routerLink]="'/functions/list'"
+            >
+              <div class="icon mb-3 text-info">
+                <i class="fas fa-calendar-alt icon fs-2"></i>
+              </div>
+              <h4 class="mb-3">Funciones</h4>
+              <p>
+                Consulta y administra las funciones programadas, incluyendo horarios y asientos disponibles.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+  </div>
+</div>

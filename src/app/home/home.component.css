@@ -1,0 +1,59 @@
+.home-comming{
+    font-family: 'Lora', serif;
+}
+
+.jumbotron {
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.icon{
+    color: #3fbbc0;
+}
+.service-item {
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-item:hover {
+    background-color: #3fbbc0 !important;
+    color: white !important;
+    transform: translateY(-10px) !important; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+.service-item:hover .icon {
+    color: white !important;
+}
+
+.text-info{
+    color: #3fbbc0 !important;
+}
+
+#optimization, #integrated-management, #sustainability {
+    margin-bottom: 40px;
+}
+
+#optimization h2, #integrated-management h2, #sustainability h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+#optimization img, #integrated-management img, #sustainability img {
+    max-width: 100%;
+    height: auto;
+}
+
+blockquote {
+    font-size: 1.2rem;
+    font-style: italic;
+    background: #f9f9f9;
+    padding: 20px;
+    border-left: 5px solid #3fbbc0;
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+blockquote-footer {
+    
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+  
