@@ -7,6 +7,7 @@ export class FunctionModel {
   movie_id: string;
   movie?: Movie;
   room?: Room;
+  displayText?: string;
   available_seats: number;
   schedule: string;
 

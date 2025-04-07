@@ -25,7 +25,7 @@
 
     <div class="col-md-8 ms-sm-auto col-lg-10 px-md-4 mt-3">
       <div class="page-title-container mb-4">
-        <h2 class="page-title">Datos de la Reserva</h2>
+        <h2 class="page-title">Registrar Reserva</h2>
         <hr class="title-underline" />
       </div>
 
@@ -37,26 +37,51 @@
             id="function_id"
             class="form-select"
             formControlName="function_id"
+            #functionSelect
+            (change)="onFunctionChange(functionSelect.value)"
           >
             <option value="">Seleccione una función</option>
             <option *ngFor="let func of functions" [value]="func.funcion_id">
-              {{ func.movie_title }} - Sala {{ func.room_name }} -
+              {{ func.movie?.title || 'Película no encontrada' }}, {{ func.room?.name || 'Sala no encontrada' }},
               {{ func.schedule | date : "short" }}
             </option>
           </select>
         </div>
 
-        <!-- Asientos seleccionados -->
+        <!-- Mapa interactivo de asientos -->
+        <div class="mb-3" *ngIf="seatRows && seatRows.length > 0">
+          <label class="form-label">Seleccione sus asientos</label>
+          <div class="seat-map">
+            <div *ngFor="let row of seatRows" class="d-flex mb-2">
+              <button
+                *ngFor="let seat of row"
+                type="button"
+                class="seat btn btn-sm me-1"
+                [ngClass]="{
+                  'btn-success': !seat.is_taken && !isSeatSelected(seat),
+                  'btn-danger': seat.is_taken,
+                  'btn-primary': isSeatSelected(seat)
+                }"
+                [disabled]="seat.is_taken"
+                (click)="toggleSeat(seat)"
+              >
+                {{ seat.row }}{{ seat.number }}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Asientos seleccionados (oculto o de solo lectura) -->
         <div class="mb-3">
           <label for="seats_selected" class="form-label"
-            >Asientos (ej: A1,A2)</label
+            >Asientos Seleccionados</label
           >
           <input
             type="text"
-            class="form-control"
             id="seats_selected"
+            class="form-control"
             formControlName="seats_selected"
-            (input)="updateSeatCount()"
+            readonly
           />
         </div>
 
@@ -67,8 +92,8 @@
           >
           <input
             type="number"
-            class="form-control"
             id="numeber_seats_selected"
+            class="form-control"
             formControlName="numeber_seats_selected"
             readonly
           />
@@ -79,15 +104,13 @@
           <label for="user_email" class="form-label">Correo Electrónico</label>
           <input
             type="email"
-            class="form-control"
             id="user_email"
+            class="form-control"
             formControlName="user_email"
           />
         </div>
 
-        <button type="submit" class="btn btn-primary">
-          Guardar Reserva
-        </button>
+        <button type="submit" class="btn btn-primary">Guardar Reserva</button>
       </form>
     </div>
   </div>

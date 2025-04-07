@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
 import { FunctionModel } from '../models/functions.model';
+import { Seat } from '../../seats/models/seats.model';
 
 @Injectable({
   providedIn: 'root'
@@ -37,13 +38,21 @@ export class FunctionsService  {
 
   // DELETE
   deleteFunction(funcion_id: string): Observable<void> {
-    const url = `${this.apiUrl}/${funcion_id}`;
+    const url = `${this.apiUrl}${funcion_id}`;
     return this.http.delete<void>(url).pipe(
       catchError(this.handleError)
     );
   }
   private handleError(error: HttpErrorResponse) {
     console.error('Error en FunctionsService:', error);
-    return throwError(() => new Error('Ocurrió un error en la operación de películas.'));
+    return throwError(() => new Error('Ocurrió un error en la operación de funciones.'));
   }
+
+  getSeatsByFunction(functionId: string): Observable<Seat[]> {
+    const url = environment.baseUrl + 'seats/function/' + functionId;
+    return this.http.get<Seat[]>(url).pipe(
+      catchError(this.handleError)
+    );
+  }
+
 }

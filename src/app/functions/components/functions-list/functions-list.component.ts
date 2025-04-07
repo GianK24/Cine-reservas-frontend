@@ -31,30 +31,31 @@ export class FunctionsListComponent implements OnInit {
     this.loadData();
   }
 
-  /** Carga todas las películas desde el servicio */
+  /** Carga todas las funciones desde el servicio */
   loadData(): void {
     this.functionsService.getFunctions().subscribe(funcs => {
       this.functions = funcs;
       this.filteredFunctions = funcs;
-
+  
       this.moviesService.getMovies().subscribe(movies => {
         this.movies = movies;
-
+  
         this.roomsService.getRooms().subscribe(rooms => {
           this.rooms = rooms;
-
+  
           // Vincular objetos de movie y room a cada función
           this.functions.forEach(fn => {
             fn.movie = this.movies.find(m => m.pelicula_id === fn.movie_id);
             fn.room = this.rooms.find(r => r.sala_id === fn.room_id);
           });
-
+  
           // Aplicar filtrado si ya había texto
           if (this.filterText) this.searchFunctions();
         });
       });
     });
   }
+  
 
   searchFunctions(): void {
     const txt = this.filterText.trim().toLowerCase();
