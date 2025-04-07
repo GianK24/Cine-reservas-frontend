@@ -137,7 +137,7 @@ export class ReservationFormComponent implements OnInit {
       Swal.fire('Formulario incompleto', 'Por favor completa todos los campos correctamente', 'warning');
       return;
     }
-
+    console.log(this.reservationForm.value)
     this.reservationsService.createReservation(this.reservationForm.value).subscribe({
       next: () => {
         Swal.fire('Reserva registrada', 'La reserva fue guardada exitosamente', 'success');
