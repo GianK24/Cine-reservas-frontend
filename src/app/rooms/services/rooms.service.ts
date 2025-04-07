@@ -44,7 +44,7 @@ export class RoomsService  {
   }
 
   private handleError(error: HttpErrorResponse) {
-    console.error('Error en MoviesService:', error);
+    console.error('Error en RoomsService:', error);
     return throwError(() => new Error('Ocurrió un error en la operación de películas.'));
   }
 }

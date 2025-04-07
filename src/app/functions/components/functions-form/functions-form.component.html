@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Barra de navegación vertical -->
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar custom-sidebar">
+      <div class="position-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a
+              class="nav-link text-light"
+              [routerLink]="'/functions/list'"
+              >Funciones</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-light"
+              [routerLink]="'/functions/form'"
+              >Agregar nueva función</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="col-md-8 ms-sm-auto col-lg-10 px-md-4 mt-3">
+      <div class="page-title-container mb-4">
+        <h2 class="page-title">Datos de la Nueva Función</h2>
+        <hr class="title-underline" />
+      </div>
+
+      <form [formGroup]="functionForm" (ngSubmit)="onSubmit()">
+        <!-- Película -->
+        <div class="mb-3">
+          <label for="movie_id" class="form-label">Película</label>
+          <select id="movie_id" class="form-select" formControlName="movie_id">
+            <option *ngFor="let movie of movies" [value]="movie.pelicula_id">
+              {{ movie.title }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Sala -->
+        <div class="mb-3">
+          <label for="room_id" class="form-label">Sala</label>
+          <select id="room_id" class="form-select" formControlName="room_id">
+            <option *ngFor="let room of rooms" [value]="room.sala_id">
+              {{ room.name }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Horario -->
+        <div class="mb-3">
+          <label for="schedule" class="form-label">Horario</label>
+          <input
+            type="datetime-local"
+            id="schedule"
+            class="form-control"
+            formControlName="schedule"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrar Función</button>
+      </form>
+    </div>
+  </div>
+</div>

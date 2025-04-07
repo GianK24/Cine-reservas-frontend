@@ -10,10 +10,13 @@ import { HomeModule } from './home/home.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MoviesModule } from './movies/movies.module';
 import { RoomsModule } from './rooms/rooms.module'
+import { FunctionsModule } from './functions/functions.module'
 
 import { HomeRoutingModule } from './home/home-routing.module';
 import { MoviesRoutingModule } from './movies/movies-routing.module';
 import { RoomsRoutingModule } from './rooms/rooms-routing.module';
+import { FunctionsRoutingModule } from './functions/functions-routing.module';
+
 
 
 @NgModule({
@@ -32,7 +35,9 @@ import { RoomsRoutingModule } from './rooms/rooms-routing.module';
     MoviesRoutingModule,
     RoomsModule,
     RoomsRoutingModule,
-
+    FunctionsModule,
+    FunctionsRoutingModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

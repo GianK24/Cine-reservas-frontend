@@ -1,0 +1,81 @@
+/* Sidebar Custom Styles */
+.custom-sidebar {
+    background-color: #3fbbc0 !important;
+    position: fixed;
+}
+  
+.sidebar .nav-link {
+    color: white;
+    padding: 0.5rem 1rem;
+    transition: all 0.3s ease-in-out;
+}
+ 
+.sidebar .nav-link:hover {
+    background-color: hsl(186, 60%, 45%);
+    border-radius: 20%;
+}
+
+.position-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.page-title-container {
+    text-align: center;
+    margin-top: 20px;
+}
+  
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #3fbbc0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+  
+.title-underline {
+    width: 500px; 
+    border: 2px solid #3fbbc0;
+    margin: 10px auto 0;
+    border-radius: 5px;
+}
+
+.form-label {
+  font-weight: 600; /* Resalta las etiquetas */
+  color: #555; /* Gris suave */
+}
+
+.form-control,
+.form-select {
+  border-radius: 10px;
+  border: 2px solid #ced4da;
+  transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.form-control:focus,
+.form-select:focus {
+  border-color: #3fbbc0;
+  box-shadow: 0 0 5px hsl(186, 60%, 45%);
+}
+
+/* Mensajes de error */
+.text-danger {
+  font-size: 0.9rem;
+  margin-top: 5px;
+}
+
+/* Botón de enviar */
+.btn-primary {
+  background-color: #3fbbc0;
+  border: none;
+  border-radius: 50px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #3fbbc0;
+  transform: scale(1.05);
+}
