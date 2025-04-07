@@ -6,13 +6,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { MoviesModule } from './movies/movies.module';
 import { HomeModule } from './home/home.module';
 import { NavbarComponent } from './navbar/navbar.component';
+import { MoviesModule } from './movies/movies.module';
+import { RoomsModule } from './rooms/rooms.module'
 
-import { MoviesRoutingModule } from './movies/movies-routing.module';
 import { HomeRoutingModule } from './home/home-routing.module';
-
+import { MoviesRoutingModule } from './movies/movies-routing.module';
+import { RoomsRoutingModule } from './rooms/rooms-routing.module';
 
 
 @NgModule({
@@ -29,7 +30,9 @@ import { HomeRoutingModule } from './home/home-routing.module';
     HomeRoutingModule,
     MoviesModule,
     MoviesRoutingModule,
-    
+    RoomsModule,
+    RoomsRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -2,42 +2,42 @@ import { environment } from '../../../environments/environment.development';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { catchError, Observable, throwError } from 'rxjs';
-import { Movie } from '../models/movies.model';
+import { Room } from '../models/rooms.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class MoviesService {
+export class RoomsService  {
 
-  public apiUrl: string = environment.baseUrl + 'movies/';
+  public apiUrl: string = environment.baseUrl + 'rooms/';
 
   constructor(private http: HttpClient) {}
 
-  // GET ALL
-  getMovies(): Observable<Movie[]> {
-    return this.http.get<Movie[]>(this.apiUrl).pipe(
+  /// GET ALL
+  getRooms(): Observable<Room[]> {
+    return this.http.get<Room[]>(this.apiUrl).pipe(
       catchError(this.handleError)
     );
   }
 
-  // CREATE (POST)
-  createMovie(movie: Movie): Observable<Movie> {
-    return this.http.post<Movie>(this.apiUrl, movie).pipe(
+  // CREATE
+  createRoom(room: Room): Observable<Room> {
+    return this.http.post<Room>(this.apiUrl, room).pipe(
       catchError(this.handleError)
     );
   }
 
-  // UPDATE (PUT)
-  updateMovie(pelicula_id: string, movie: Movie): Observable<Movie> {
-    const url = `${this.apiUrl}${pelicula_id}`;
-    return this.http.put<Movie>(url, movie).pipe(
+  // UPDATE
+  updateRoom(room_id: string, room: Room): Observable<Room> {
+    const url = `${this.apiUrl}/${room_id}`;
+    return this.http.put<Room>(url, room).pipe(
       catchError(this.handleError)
     );
   }
 
   // DELETE
-  deleteMovie(pelicula_id: string): Observable<void> {
-    const url = `${this.apiUrl}${pelicula_id}`;
+  deleteRoom(room_id: string): Observable<void> {
+    const url = `${this.apiUrl}/${room_id}`;
     return this.http.delete<void>(url).pipe(
       catchError(this.handleError)
     );

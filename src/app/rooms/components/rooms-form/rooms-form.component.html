@@ -1,0 +1,67 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Barra de navegación vertical -->
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar custom-sidebar">
+      <div class="position-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a
+              class="nav-link text-light"
+              [routerLink]="'/rooms/list'"
+              >Salas</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-light"
+              [routerLink]="'/rooms/form'"
+              >Agregar nueva sala</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="col-md-8 ms-sm-auto col-lg-10 px-md-4 mt-3">
+      <div class="page-title-container mb-4">
+        <h2 class="page-title">Datos de la Nueva Sala</h2>
+        <hr class="title-underline" />
+      </div>
+
+      <form [formGroup]="roomForm" (ngSubmit)="onSubmit()">
+        <!-- Nombre de la sala -->
+        <div class="mb-3">
+          <label for="name" class="form-label">Nombre</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            formControlName="name"
+            placeholder="Nombre de la sala"
+          />
+          <div *ngIf="name?.invalid && name?.touched" class="text-danger">
+            <small *ngIf="name?.errors?.['required']">El nombre es obligatorio.</small>
+          </div>
+        </div>
+
+        <!-- Capacidad -->
+        <div class="mb-3">
+          <label for="capacity" class="form-label">Capacidad</label>
+          <input
+            type="number"
+            id="capacity"
+            class="form-control"
+            formControlName="capacity"
+            placeholder="Cantidad de personas"
+          />
+          <div *ngIf="capacity?.invalid && capacity?.touched" class="text-danger">
+            <small *ngIf="capacity?.errors?.['required']">La capacidad es obligatoria.</small>
+            <small *ngIf="capacity?.errors?.['min']">Debe ser al menos 1.</small>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Registrar Sala</button>
+      </form>
+    </div>
+  </div>
+</div>
