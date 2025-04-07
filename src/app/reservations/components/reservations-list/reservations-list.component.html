@@ -5,17 +5,18 @@
       <div class="position-sticky">
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a
-              class="nav-link text-light"
-              [routerLink]="'/rooms/list'"
-              >Salas</a
+            <a class="nav-link text-light" [routerLink]="'/functions/list'"
+              >Funciones</a
             >
           </li>
           <li class="nav-item">
-            <a
-              class="nav-link text-light"
-              [routerLink]="'/rooms/form'"
-              >Agregar nueva sala</a
+            <a class="nav-link text-light" [routerLink]="'/reservations/list'"
+              >Reservas</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" [routerLink]="'/reservations/form'"
+              >Agregar una reserva</a
             >
           </li>
         </ul>
@@ -24,7 +25,7 @@
 
     <div class="col-md-8 ms-sm-auto col-lg-10 px-md-4 mt-3">
       <div class="page-title-container mb-4">
-        <h1 class="page-title">Listado de Salas</h1>
+        <h1 class="page-title">Reservas Registradas</h1>
         <hr class="title-underline" />
       </div>
 
@@ -32,25 +33,27 @@
         <input
           type="text"
           class="form-control"
-          placeholder="Buscar sala por nombre"
+          placeholder="Buscar por email del usuario"
           [(ngModel)]="filterText"
-          (input)="searchRooms()"
+          (input)="searchReservations()"
         />
       </div>
 
       <div class="row">
-        <div *ngFor="let room of filteredRooms" class="col-md-4 mb-4">
+        <div *ngFor="let res of filteredReservations" class="col-md-6 mb-3">
           <div class="card shadow-sm rounded-lg text-start">
             <div class="card-body">
-              <h5 class="card-title fw-bold mb-2">{{ room.name }}</h5>
-              <p class="card-text"><strong>Capacidad:</strong> {{ room.capacity }} personas</p>
+              <h5 class="card-title fw-bold mb-2">{{ res.user_email }}</h5>
+              <p class="card-text"><strong>Función:</strong> {{ res.function_id }}</p>
+              <p class="card-text"><strong>Asientos:</strong> {{ res.seats_selected }}</p>
+              <p class="card-text"><strong>Cantidad:</strong> {{ res.numeber_seats_selected }}</p>
 
-                <!-- Botones de acción -->
+              <!-- Botones de acción -->
 
               <div class="mt-auto d-flex justify-content-center">
                 <button
                   class="btn btn-sm btn-outline-danger"
-                  (click)="onDelete(room)"
+                  (click)="onDelete(res)"
                 >
                   Eliminar
                 </button>

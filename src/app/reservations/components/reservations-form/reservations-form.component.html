@@ -1,0 +1,94 @@
+<div class="container-fluid">
+  <div class="row">
+    <!-- Barra de navegación vertical -->
+    <nav class="col-md-3 col-lg-2 d-md-block bg-light sidebar custom-sidebar">
+      <div class="position-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link text-light" [routerLink]="'/functions/list'"
+              >Funciones</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" [routerLink]="'/reservations/list'"
+              >Reservas</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light" [routerLink]="'/reservations/form'"
+              >Agregar una reserva</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="col-md-8 ms-sm-auto col-lg-10 px-md-4 mt-3">
+      <div class="page-title-container mb-4">
+        <h2 class="page-title">Datos de la Reserva</h2>
+        <hr class="title-underline" />
+      </div>
+
+      <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+        <!-- Selección de función -->
+        <div class="mb-3">
+          <label for="function_id" class="form-label">Función</label>
+          <select
+            id="function_id"
+            class="form-select"
+            formControlName="function_id"
+          >
+            <option value="">Seleccione una función</option>
+            <option *ngFor="let func of functions" [value]="func.funcion_id">
+              {{ func.movie_title }} - Sala {{ func.room_name }} -
+              {{ func.schedule | date : "short" }}
+            </option>
+          </select>
+        </div>
+
+        <!-- Asientos seleccionados -->
+        <div class="mb-3">
+          <label for="seats_selected" class="form-label"
+            >Asientos (ej: A1,A2)</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="seats_selected"
+            formControlName="seats_selected"
+            (input)="updateSeatCount()"
+          />
+        </div>
+
+        <!-- Número de asientos -->
+        <div class="mb-3">
+          <label for="numeber_seats_selected" class="form-label"
+            >Número de Asientos</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="numeber_seats_selected"
+            formControlName="numeber_seats_selected"
+            readonly
+          />
+        </div>
+
+        <!-- Correo del usuario -->
+        <div class="mb-3">
+          <label for="user_email" class="form-label">Correo Electrónico</label>
+          <input
+            type="email"
+            class="form-control"
+            id="user_email"
+            formControlName="user_email"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          Guardar Reserva
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

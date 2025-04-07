@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'movies', loadChildren: () => import('./movies/movies.module').then(m => m.MoviesModule) },
   { path: 'rooms', loadChildren: () => import('./rooms/rooms.module').then(m => m.RoomsModule) },
   { path: 'functions', loadChildren: () => import('./functions/functions.module').then(m => m.FunctionsModule) },
+  { path: 'reservations', loadChildren: () => import('./reservations/reservations.module').then(m => m.ReservationsModule) },
 
 
 

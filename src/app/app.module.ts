@@ -11,11 +11,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MoviesModule } from './movies/movies.module';
 import { RoomsModule } from './rooms/rooms.module'
 import { FunctionsModule } from './functions/functions.module'
+import { ReservationsModule } from './reservations/reservations.module'
 
 import { HomeRoutingModule } from './home/home-routing.module';
 import { MoviesRoutingModule } from './movies/movies-routing.module';
 import { RoomsRoutingModule } from './rooms/rooms-routing.module';
 import { FunctionsRoutingModule } from './functions/functions-routing.module';
+import { ReservationsRoutingModule } from './reservations/reservations-routing.module';
 
 
 
@@ -37,6 +39,8 @@ import { FunctionsRoutingModule } from './functions/functions-routing.module';
     RoomsRoutingModule,
     FunctionsModule,
     FunctionsRoutingModule,
+    ReservationsModule,
+    ReservationsRoutingModule,
     
   ],
   providers: [],
